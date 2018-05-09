@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QUANLYTONKHO" Class="MyDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-QP9VPHV\SQLEXPRESS;Initial Catalog=QUANLYTONKHO;Integrated Security=True" SettingsObjectName="QuanLyTonKho.Properties.Settings" SettingsPropertyName="QUANLYTONKHOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
+    <Type Name="ACCOUNT">
+      <Column Name="USERNAME" Type="System.String" DbType="NChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PASS" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="TYPEACC" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HANGHOA" Member="HANGHOAs">
+    <Type Name="HANGHOA">
+      <Column Name="MAHANG" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENHANG" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GIA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MAKHO" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYNHAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="HANGHOA_PHIEUHANG" Member="PHIEUHANGs" ThisKey="MAHANG" OtherKey="MAHANG" Type="PHIEUHANG" />
+      <Association Name="HANGHOA_PHIEUXUATKHO" Member="PHIEUXUATKHOs" ThisKey="MAHANG" OtherKey="MAHANG" Type="PHIEUXUATKHO" />
+      <Association Name="KHO_HANGHOA" Member="KHO" ThisKey="MAKHO" OtherKey="MAKHO" Type="KHO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHACHHANG" Member="KHACHHANGs">
+    <Type Name="KHACHHANG">
+      <Column Name="MAKHACHHANG" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENKHACHHANG" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SODIENTHOAI" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="KHACHHANG_PHIEUHANG" Member="PHIEUHANGs" ThisKey="MAKHACHHANG" OtherKey="MAKHACHHANG" Type="PHIEUHANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHO" Member="KHOs">
+    <Type Name="KHO">
+      <Column Name="MAKHO" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENKHO" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="KHO_HANGHOA" Member="HANGHOAs" ThisKey="MAKHO" OtherKey="MAKHO" Type="HANGHOA" />
+      <Association Name="KHO_PHIEUHANG" Member="PHIEUHANGs" ThisKey="MAKHO" OtherKey="MAKHO" Type="PHIEUHANG" />
+      <Association Name="KHO_PHIEUXUATKHO" Member="PHIEUXUATKHOs" ThisKey="MAKHO" OtherKey="MAKHOXUAT" Type="PHIEUXUATKHO" />
+      <Association Name="KHO_PHIEUXUATKHO1" Member="PHIEUXUATKHOs1" ThisKey="MAKHO" OtherKey="MAKHONHAP" Type="PHIEUXUATKHO" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUHANG" Member="PHIEUHANGs">
+    <Type Name="PHIEUHANG">
+      <Column Name="SOCHUNGTU" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAHANG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MAKHACHHANG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MAKHO" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NGAY" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DIENGIAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LOAIPHIEU" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Association Name="HANGHOA_PHIEUHANG" Member="HANGHOA" ThisKey="MAHANG" OtherKey="MAHANG" Type="HANGHOA" IsForeignKey="true" />
+      <Association Name="KHACHHANG_PHIEUHANG" Member="KHACHHANG" ThisKey="MAKHACHHANG" OtherKey="MAKHACHHANG" Type="KHACHHANG" IsForeignKey="true" />
+      <Association Name="KHO_PHIEUHANG" Member="KHO" ThisKey="MAKHO" OtherKey="MAKHO" Type="KHO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUXUATKHO" Member="PHIEUXUATKHOs">
+    <Type Name="PHIEUXUATKHO">
+      <Column Name="SOCHUNGTU" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAHANG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MAKHOXUAT" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MAKHONHAP" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NGAY" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DIENGIAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="HANGHOA_PHIEUXUATKHO" Member="HANGHOA" ThisKey="MAHANG" OtherKey="MAHANG" Type="HANGHOA" IsForeignKey="true" />
+      <Association Name="KHO_PHIEUXUATKHO" Member="KHO" ThisKey="MAKHOXUAT" OtherKey="MAKHO" Type="KHO" IsForeignKey="true" />
+      <Association Name="KHO_PHIEUXUATKHO1" Member="KHO1" ThisKey="MAKHONHAP" OtherKey="MAKHO" Type="KHO" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,286 @@
+﻿<Window x:Class="QuanLyTonKho.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyTonKho"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="18"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Name="mainWindow"
+        xmlns:uc="clr-namespace:QuanLyTonKho.UserControlLayout"
+        Title="Quản lý tồn kho" Height="420" Width="680" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <uc:ControlBarWindow Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarWindow>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Border BorderBrush="#FF0B5D78" BorderThickness="1">
+                <materialDesign:Card Grid.Row="1" Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!--===================== Hàng 1 =======================-->
+                        <Grid Grid.Row="0">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Margin" Value="10"></Setter>
+                                        <Setter Property="Height" Value="auto"></Setter>
+                                        <Setter Property="Width" Value="140"></Setter>
+                                        <Setter Property="Background" Value="#FFB8F0E8"></Setter>
+                                        <Setter Property="BorderBrush" Value="Blue"></Setter>
+                                        <Setter Property="BorderThickness" Value="2"></Setter>
+                                    </Style>
+                                </StackPanel.Resources>
+
+                                <!-- Button Danh mục hàng hóa -->
+                                <Button Click="Button_DanhMucHangHoa">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Danh mục hàng hóa</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="Cart" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Danh mục khách hàng -->
+                                <Button Click="Button_DanhMucKhachHang">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Danh mục khách hàng</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="AccountMultiple" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Danh mục cửa hàng -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Danh mục cửa hàng</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="Store" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Tồn đầu kỳ -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Tồn đầu kỳ</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="Alarm" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+
+                        <!--===================== Hàng 2 =======================-->
+                        <Grid Grid.Row="1">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Margin" Value="10"></Setter>
+                                        <Setter Property="Height" Value="auto"></Setter>
+                                        <Setter Property="Width" Value="140"></Setter>
+                                        <Setter Property="Background" Value="#FFB8F0E8"></Setter>
+                                        <Setter Property="BorderBrush" Value="Blue"></Setter>
+                                        <Setter Property="BorderThickness" Value="2"></Setter>
+                                    </Style>
+                                </StackPanel.Resources>
+
+                                <!-- Button Phiếu nhập hàng -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Phiếu nhập hàng</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="CartOutline" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Phiếu xuất hàng -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Phiếu xuất hàng</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="CarPickup" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Phiếu xuất kho -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Phiếu xuất kho</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="ArrowRightBoldBox" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Tổng hợp nhập xuất -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Tổng hợp nhập xuất</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="Apps" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+
+
+                        </Grid>
+
+                        <!--===================== Hàng 3 =======================-->
+                        <Grid Grid.Row="2">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Margin" Value="10"></Setter>
+                                        <Setter Property="Height" Value="auto"></Setter>
+                                        <Setter Property="Width" Value="140"></Setter>
+                                        <Setter Property="Background" Value="#FFB8F0E8"></Setter>
+                                        <Setter Property="BorderBrush" Value="Blue"></Setter>
+                                        <Setter Property="BorderThickness" Value="2"></Setter>
+                                    </Style>
+                                </StackPanel.Resources>
+
+                                <!-- Button Bảng kê nhập hàng -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Bảng kê nhập hàng</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="BookMultipleVariant" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Bảng kê xuất hàng -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Bảng kê xuất hàng</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="BookMinus" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Thống kê mặt hàng -->
+                                <Button>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Thống kê mặt hàng</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="LaptopChromebook" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!-- Button Quay về đăng nhập -->
+                                <Button Click="Button_DangNhap">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <TextBlock TextWrapping="Wrap" TextAlignment="Center">Quay về đăng nhập</TextBlock>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <materialDesign:PackIcon Kind="AccountCircle" HorizontalAlignment="Center"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </materialDesign:Card>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
