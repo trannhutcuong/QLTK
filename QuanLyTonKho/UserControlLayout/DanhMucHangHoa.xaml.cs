@@ -43,7 +43,6 @@ namespace QuanLyTonKho.UserControlLayout
                     MaHang = listHangHoaDB[i].MAHANG,
                     TenHang = listHangHoaDB[i].TENHANG,
                     Gia = (int)listHangHoaDB[i].GIA,
-                    KhoChua = listHangHoaDB[i].MAKHO,
                     NgayNhap = (DateTime)listHangHoaDB[i].NGAYNHAP,
                     SoLuong = (int)listHangHoaDB[i].SOLUONG
                 });
@@ -54,7 +53,8 @@ namespace QuanLyTonKho.UserControlLayout
         private void Button_Them_Click(object sender, RoutedEventArgs e)
         {
             ThemSanPham them = new ThemSanPham();
-            them.Show();
+            them.ShowDialog();
+            NapDuLieuHangHoa();
         }
 
         private void Button_Xoa_Click(object sender, RoutedEventArgs e)
@@ -70,7 +70,7 @@ namespace QuanLyTonKho.UserControlLayout
                 else
                 {
                     Database.DELETE.XoaHangHoa(hang);
-                    MessageBox.Show("Đã xóa sản phẩm có mã " + hang.MaHang, "Thông báo");
+                    NapDuLieuHangHoa();
                 }
             }
             else
@@ -85,10 +85,34 @@ namespace QuanLyTonKho.UserControlLayout
             if (hang != null)
             {
                 SuaSanPham suaSP = new SuaSanPham(hang);
-                suaSP.Show();
+                suaSP.ShowDialog();
+                NapDuLieuHangHoa();
             }
             else
                 MessageBox.Show("Hãy chọn sản phẩm cần cập nhật", "Thông báo");
+        }
+
+        private void Button_Tim_Click(object sender, RoutedEventArgs e)
+        {
+            string ThongTinTim = lbTimKiem.Text;
+            int dem = 0;
+            for (int i = 0; i < listHangHoa.Count; ++i)
+            {
+                if (ThongTinTim.ToLower() == listHangHoa[i].MaHang.ToLower())
+                {
+                    SuaSanPham thongTin = new SuaSanPham(listHangHoa[i]);
+                    thongTin.Show();
+                }
+                else dem++;
+            }
+            if (dem == listHangHoa.Count)
+                MessageBox.Show("Không tìm thấy sản phẩm", "Thông báo");
+        }
+
+        private void Button_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Button_Tim_Click(sender, e);
         }
     }
 
@@ -98,7 +122,6 @@ namespace QuanLyTonKho.UserControlLayout
         public string MaHang { get; set; }
         public string TenHang { get; set; }
         public int Gia { get; set; }
-        public string KhoChua { get; set; }
         public DateTime NgayNhap { get; set; }
         public int SoLuong { get; set; } 
     }

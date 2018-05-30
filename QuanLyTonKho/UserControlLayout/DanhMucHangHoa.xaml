@@ -14,11 +14,61 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"
              FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="540" d:DesignWidth="1000">
+    <StackPanel>
+        <Canvas Height="2" Background="#FF24F19D"></Canvas>
+        <Grid Height="80">
             
-             d:DesignHeight="450" d:DesignWidth="1000">
-    <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Border BorderBrush="BlueViolet" Width="800"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Border Height="50" Width="330" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="100,0,0,0"
+                BorderBrush="BlueViolet" BorderThickness="1.5"
+                CornerRadius="5">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                        </Button>
+
+                        <TextBox x:Name="lbTimKiem" KeyDown="Button_KeyDown"
+                     Margin="8 0 0 0"
+                     materialDesign:HintAssist.Hint="Tìm theo mã"
+                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                     BorderThickness="0"
+                     Width="250"
+                     VerticalAlignment="Center" />
+
+                        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Panel.ZIndex="0"
+                                Click="Button_Tim_Click">
+                            <materialDesign:PackIcon Kind="Send" />
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+            
+            <!-- Nút thêm, xóa, sửa-->
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="240,0,0,0" Width="60" Click="Button_Them_Click">
+                        <TextBlock VerticalAlignment="Center" FontSize="25" ToolTip="Thêm">+</TextBlock>
+                    </Button>
+                    <Button Margin="10,0,0,0" Width="60" Click="Button_Xoa_Click" ToolTip="Xóa">
+                        <materialDesign:PackIcon Kind="Delete" />
+                    </Button>
+                    <Button Margin="10,0,0,0" Width="60" Click="Button_Sua_Click" ToolTip="Sửa">
+                        <materialDesign:PackIcon Kind="GreasePencil"></materialDesign:PackIcon>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Height="450">
+            <Border BorderBrush="BlueViolet" Width="880"
                 BorderThickness="1" Margin="80,10,10,10">
                 <ListView x:Name="lvDanhMucHangHoa">
                     <ListView.View>
@@ -26,35 +76,14 @@
                             <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}" Width="80"></GridViewColumn>
                             <GridViewColumn Header="Mã hàng" DisplayMemberBinding="{Binding MaHang}" Width="120"></GridViewColumn>
                             <GridViewColumn Header="Tên hàng" DisplayMemberBinding="{Binding TenHang}" Width="150"></GridViewColumn>
-                            <GridViewColumn Header="Giá" DisplayMemberBinding="{Binding Gia}" Width="100"></GridViewColumn>
-                            <GridViewColumn Header="Kho chứa" DisplayMemberBinding="{Binding KhoChua}" Width="110"></GridViewColumn>
-                            <GridViewColumn Header="Ngày nhập" DisplayMemberBinding="{Binding NgayNhap}" Width="150"></GridViewColumn>
+                            <GridViewColumn Header="Giá" DisplayMemberBinding="{Binding Gia}" Width="150"></GridViewColumn>
+                            <GridViewColumn Header="Ngày nhập" DisplayMemberBinding="{Binding NgayNhap}" Width="200"></GridViewColumn>
                             <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}" Width="100"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
             </Border>
-
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center"
-                    Height="300" Width="60" Margin="5">
-
-                <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                    ToolTip="Thêm" FontSize="30" FontWeight="Bold"
-                    Margin="0 20" Click="Button_Them_Click">+
-                </Button>
-
-                <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                    ToolTip="Xóa" FontSize="40" FontWeight="Bold"
-                    Margin="0 20" Click="Button_Xoa_Click">-
-                </Button>
-
-                <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                    ToolTip="Sửa"
-                    Margin="0 20" Click="Button_Sua_Click">
-                    <materialDesign:PackIcon Kind="GreasePencil" />
-                </Button>
-            </StackPanel>
         </StackPanel>
         
-    </Grid>
+    </StackPanel>
 </UserControl>

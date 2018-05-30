@@ -15,7 +15,7 @@
         Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown"
-        Title="Thêm sản phẩm" Height="540" Width="450">
+        Title="Thêm sản phẩm" Height="500" Width="500">
     <Grid>
         <materialDesign:Card Margin="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <StackPanel>
@@ -26,7 +26,7 @@
                 
                 <StackPanel Orientation="Horizontal" Height="60">
                     <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Mã hàng:</TextBlock>
-                    <Border  VerticalAlignment="Center" Height="40" Width="200"
+                    <Border  VerticalAlignment="Center" Height="40" Width="250"
                              BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
                              Margin="10,0,0,0">
                         <TextBox x:Name="tbMa" BorderThickness="0" Margin="10,2,0,5"></TextBox>
@@ -35,7 +35,7 @@
 
                 <StackPanel Orientation="Horizontal" Height="60">
                     <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Tên hàng:</TextBlock>
-                    <Border  VerticalAlignment="Center" Height="40" Width="200"
+                    <Border  VerticalAlignment="Center" Height="40" Width="250"
                              BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
                              Margin="10,0,0,0">
                         <TextBox x:Name="tbTen" BorderThickness="0" Margin="10,2,0,5"></TextBox>
@@ -44,7 +44,7 @@
 
                 <StackPanel Orientation="Horizontal" Height="60">
                     <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Giá:</TextBlock>
-                    <Border  VerticalAlignment="Center" Height="40" Width="200"
+                    <Border  VerticalAlignment="Center" Height="40" Width="250"
                              BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
                              Margin="10,0,0,0">
                         <TextBox x:Name="tbGia" BorderThickness="0" Margin="10,2,0,5"></TextBox>
@@ -52,26 +52,17 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Height="60">
-                    <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Kho chứa:</TextBlock>
-                    <Border  VerticalAlignment="Center" Height="40" Width="200"
-                             BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
-                             Margin="10,0,0,0">
-                        <TextBox x:Name="tbKho" BorderThickness="0"  Margin="10,2,0,5"></TextBox>
-                    </Border>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Height="60">
                     <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Ngày nhập:</TextBlock>
-                    <Border  VerticalAlignment="Center" Height="40" Width="200"
+                    <Border  VerticalAlignment="Center" Height="40" Width="250"
                              BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
                              Margin="10,0,0,0">
-                        <DatePicker x:Name="tbNgay" BorderThickness="0"  Margin="10,2,0,5"></DatePicker>
+                        <DatePicker x:Name="datePicker" BorderThickness="0"  Margin="10,2,0,5"></DatePicker>
                     </Border>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Height="60">
                     <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Số lượng:</TextBlock>
-                    <Border  VerticalAlignment="Center" Height="40" Width="200"
+                    <Border  VerticalAlignment="Center" Height="40" Width="250"
                              BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
                              Margin="10,0,0,0">
                         <TextBox x:Name="tbSoLuong" BorderThickness="0"  Margin="10,2,0,5"></TextBox>
@@ -81,10 +72,10 @@
                 <Grid Margin="0,20,0,0">
                     <Button VerticalAlignment="Center"
                             HorizontalAlignment="Left"
-                            Margin="100,0,0,0" Click="Button_Them_Click"> Thêm</Button>
+                            Margin="120,0,0,0" Click="Button_Them_Click"> Thêm</Button>
                     <Button VerticalAlignment="Center"
                             HorizontalAlignment="Right"
-                            Margin="0,0,100,0" Click="Button_Huy_Click">Hủy</Button>
+                            Margin="0,0,120,0" Click="Button_Huy_Click">Hủy</Button>
                 </Grid>
             </StackPanel>
         </materialDesign:Card>

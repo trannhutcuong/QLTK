@@ -13,14 +13,13 @@ namespace QuanLyTonKho.Database
         // Sửa thông tin hàng hóa
         public static void CapNhatHangHoa(HangHoa hang)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 HANGHOA hangHoaDB = (from n in db.HANGHOAs
                                      where n.MAHANG == hang.MaHang
                                      select n).FirstOrDefault();
                 hangHoaDB.TENHANG = hang.TenHang;
                 hangHoaDB.GIA = hang.Gia;
-                hangHoaDB.MAKHO = hang.KhoChua;
                 hangHoaDB.NGAYNHAP = hang.NgayNhap;
                 hangHoaDB.SOLUONG = hang.SoLuong;
                 db.SubmitChanges();
@@ -30,7 +29,7 @@ namespace QuanLyTonKho.Database
         // Sửa thông tin khách hàng
         public static void CapNhatKhachHang(KhachHang khachHang)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 KHACHHANG khachHangDB = (from n in db.KHACHHANGs
                                        where n.MAKHACHHANG == khachHang.MaKhachHang
@@ -47,7 +46,7 @@ namespace QuanLyTonKho.Database
         // Sửa thông tin kho
         public static void CapNhatKho(Kho kho)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 KHO khoDB = (from n in db.KHOs
                                          where n.MAKHO == kho.MaKho
@@ -62,7 +61,7 @@ namespace QuanLyTonKho.Database
         // Sửa thông tin số lượng sản phẩm
         public static void SuaSoLuongSanPham(string MaHang, int soLuong)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 HANGHOA hangDB = (from n in db.HANGHOAs
                                   where n.MAHANG == MaHang
@@ -72,15 +71,21 @@ namespace QuanLyTonKho.Database
             }
         }
 
-        // Sửa thông tin kho hàng hóa
-        public static void SuaKhoSanPham(string MaHang, string maKho)
+        // Sửa thông tin phiếu hàng
+        public static void CapNhatPhieuHang(PhieuHang phieuHang, int loaiPhieu)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
-                HANGHOA hangDB = (from n in db.HANGHOAs
-                                  where n.MAHANG == MaHang
-                                  select n).FirstOrDefault();
-                hangDB.MAKHO = maKho;
+                PHIEUHANG phieuHangDB = (from n in db.PHIEUHANGs
+                                     where n.SOCHUNGTU == phieuHang.SoCT
+                                     select n).FirstOrDefault();
+                phieuHangDB.SOCHUNGTU = phieuHang.SoCT;
+                phieuHangDB.NGAY = phieuHang.NgayNhap;
+                phieuHangDB.MAHANG = phieuHang.MaHang;
+                phieuHangDB.MAKHACHHANG = phieuHang.MaKH;
+                phieuHangDB.DIENGIAI = phieuHang.DienGiai;
+                phieuHangDB.LOAIPHIEU = (byte)loaiPhieu;
+                phieuHangDB.SOLUONG = phieuHang.SoLuong;
                 db.SubmitChanges();
             }
         }

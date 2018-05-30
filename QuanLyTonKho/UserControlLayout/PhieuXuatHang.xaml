@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="QuanLyTonKho.UserControlLayout.PhieuXuatHang"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyTonKho.UserControlLayout"
+             mc:Ignorable="d" 
+             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="18"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="540" d:DesignWidth="1000">
+    <StackPanel>
+        <Canvas Height="2" Background="#FF24F19D"></Canvas>
+        <Grid Height="80">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Border Height="50" Width="330" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="100,0,0,0"
+                BorderBrush="BlueViolet" BorderThickness="1.5"
+                CornerRadius="5">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                        </Button>
+
+                        <TextBox x:Name="lbTimKiem" KeyDown="lbTimKiem_KeyDown"
+                     Margin="8 0 0 0"
+                     materialDesign:HintAssist.Hint="Tìm theo số chứng từ"
+                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                     BorderThickness="0"
+                     Width="250"
+                     VerticalAlignment="Center" />
+
+                        <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" Margin="8 0 0 0" Panel.ZIndex="0"
+                                Click="Button_Tim_Click">
+                            <materialDesign:PackIcon Kind="Send" />
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Nút thêm, xóa, sửa-->
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="240,0,0,0" Width="60" Click="Button_Them_Click">
+                        <TextBlock VerticalAlignment="Center" FontSize="25" ToolTip="Thêm">+</TextBlock>
+                    </Button>
+                    <Button Margin="10,0,0,0" Width="60" Click="Button_Xoa_Click" ToolTip="Xóa">
+                        <materialDesign:PackIcon Kind="Delete" />
+                    </Button>
+                    <Button Margin="10,0,0,0" Width="60" Click="Button_Sua_Click" ToolTip="Sửa">
+                        <materialDesign:PackIcon Kind="GreasePencil"></materialDesign:PackIcon>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Height="450">
+            <Border BorderBrush="BlueViolet" Width="880"
+                BorderThickness="1" Margin="80,10,10,10">
+                <ListView x:Name="lvPhieuXuatHang">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}" Width="80"></GridViewColumn>
+                            <GridViewColumn Header="Số chứng từ" DisplayMemberBinding="{Binding SoCT}" Width="120"></GridViewColumn>
+                            <GridViewColumn Header="Mã hàng" DisplayMemberBinding="{Binding MaHang}" Width="120"></GridViewColumn>
+                            <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding MaKH}" Width="140"></GridViewColumn>
+                            <GridViewColumn Header="Ngày nhập" DisplayMemberBinding="{Binding NgayNhap}" Width="150"></GridViewColumn>
+                            <GridViewColumn Header="Số lượng" DisplayMemberBinding="{Binding SoLuong}" Width="100"></GridViewColumn>
+                            <GridViewColumn Header="Diễn giải" DisplayMemberBinding="{Binding DienGiai}" Width="250"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

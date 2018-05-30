@@ -27,7 +27,8 @@ namespace QuanLyTonKho.UserControlLayout
 
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
-            Button_Click(sender, e);
+            if (e.Key == Key.Enter)
+                Button_Click(sender, e);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -45,14 +46,20 @@ namespace QuanLyTonKho.UserControlLayout
                     {
                         STT = i + 1,
                         MaHang = listHang[i].MAHANG,
-                        SoLuong = Database.QUERY.LaySoLuongTonTheoNgay(ngay, listHang[i].MAHANG),
-                        Tien = Database.QUERY.LaySoLuongTonTheoNgay(ngay, listHang[i].MAHANG)* Database.QUERY.LayGiaTuHang(listHang[i].MAHANG)
+                        SoLuong = Database.QUERY.LaySoLuongTonTheoNgay(ngay, DateTime.Now,listHang[i].MAHANG),
+                        Tien = Database.QUERY.LaySoLuongTonTheoNgay(ngay, DateTime.Now,listHang[i].MAHANG)* Database.QUERY.LayGiaTuHang(listHang[i].MAHANG)
                     });
                 }
                 lvDanhMucCuaHang.ItemsSource = listTonDauKy;
             }
             else
-                MessageBox.Show("Hãy nhập ngày cần xem", "Thông báo");
+                MessageBox.Show("Hãy chọn ngày cần xem", "Thông báo");
+        }
+
+        private void datePicker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Button_Click(sender, e);
         }
     }
     public class tonDauKy

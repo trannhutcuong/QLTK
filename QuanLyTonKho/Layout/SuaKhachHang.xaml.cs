@@ -46,6 +46,7 @@ namespace QuanLyTonKho.Layout
 
                 Database.UPDATE.CapNhatKhachHang(KHMoi);
                 MessageBox.Show("Cập nhật thành công", "Thông báo");
+                this.Close();
             }
         }
 

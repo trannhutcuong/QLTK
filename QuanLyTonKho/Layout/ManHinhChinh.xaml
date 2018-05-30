@@ -15,155 +15,122 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Quản lý tồn kho" Height="700" Width="1000" WindowStartupLocation="CenterScreen"
+        Title="Quản lý tồn kho" Height="700" Width="1300" WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
 
-    <Window.Resources>
-        <Storyboard x:Key="OpenMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="180"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="CloseMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="180"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-    </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
-        </EventTrigger>
-    </Window.Triggers>
-
     <Grid>
-        <StackPanel>
-            <!-- Thanh tiêu đề -->
-            <materialDesign:ColorZone Mode="PrimaryDark"
-                                      Padding="15" Height="60">
-                <DockPanel>
-                    <!-- Tùy chọn -->
-                    <materialDesign:PopupBox DockPanel.Dock="Right" 
-                                         PlacementMode="BottomAndAlignRightEdges">
-                        <StackPanel>
-                            <Button>Đăng xuất</Button>
-                            <Button>Thoát</Button>
-                        </StackPanel>
-                    </materialDesign:PopupBox>
-
-                    <StackPanel Orientation="Horizontal">
-                        <!-- Tiêu đề -->
-                        <Grid Width="880">
-                            <TextBlock VerticalAlignment="Center" 
-                               Margin="16 0 0 0"
-                               TextAlignment="Center"
-                               FontFamily="Arial"
-                               FontSize="30"
-                               FontWeight="Bold"
-                               Name="TieuDe">Danh mục hàng hóa
-                            </TextBlock>
-                        </Grid>
-
-                    </StackPanel>
-
-                </DockPanel>
-            </materialDesign:ColorZone>
-
-            <!-- Màn hình hiển thị -->
-            <Grid Height="600" Background="White">
-                <StackPanel>
-                    <!-- Tên tài khoản -->
-                    <Grid Height="60">
-                        <TextBlock x:Name="textNgay" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                   Margin="100,10,0,0" ></TextBlock>
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"
-                                   FontFamily="Arial" FontSize="20" Margin="0,0,50,0">Tài khoản</TextBlock>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Width="250" Background="#FF6A98E8">
+                <Border Height="150" BorderBrush="#FF8909E2" BorderThickness="1">
+                    <Grid Margin="5">
+                        <Image Source="/Image/store.jpg"></Image>
                     </Grid>
-                    <StackPanel x:Name="GridMain" Height="540">
+                </Border>
 
-                        <!-- Tùy chọn tìm kiếm -->
-                        <Grid Height="80" x:Name="TuyChonTimKiem">
-                            
-                        </Grid>
+                <Border BorderBrush="#FF8909E2" BorderThickness="1">
+                    <ListView x:Name="ListViewMenu" Margin="5" FontFamily="Arial" FontSize="15"
+                       SelectionChanged="ListViewMenu_SelectionChanged">
+                        <ListViewItem x:Name="ItemHangHoa" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ViewList" VerticalAlignment="Center"/>
+                                <TextBlock Text="Danh mục hàng hóa" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                        </ListViewItem>
+
+                        <ListViewItem x:Name="ItemKhachHang" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="AccountCardDetails" VerticalAlignment="Center"/>
+                                <TextBlock Text="Danh mục khách hàng" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                        </ListViewItem>
+
+                        <ListViewItem x:Name="ItemTonDauKy" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Restore" VerticalAlignment="Center"/>
+                                <TextBlock Text="Tồn đầu kỳ" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                        </ListViewItem>
+
                         
-                        <!-- Nơi hiển thị chính -->
-                        <StackPanel x:Name="MainView" Height="450" Orientation="Horizontal">
+                        <ListViewItem x:Name="ItemNhapHang" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ArrowRightBoldBox" VerticalAlignment="Center"/>
+                                <TextBlock Text="Phiếu nhập hàng" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                        </ListViewItem>
 
-                        </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-        </StackPanel>
+                        <ListViewItem x:Name="ItemXuatHang" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ArrowLeftBoldBox" VerticalAlignment="Center"/>
+                                <TextBlock Text="Phiếu xuất hàng" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                            
+                        </ListViewItem>
 
-        <!-- Menu kéo -->
-        <Grid x:Name="GridMenu" Height="700" VerticalAlignment="Top" Width="60" HorizontalAlignment="Left" Background="#FF94B1DA">
-            <StackPanel>
+                        <ListViewItem x:Name="ItemTongNhapXuat" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Elevator" VerticalAlignment="Center"/>
+                                <TextBlock Text="Tổng hợp nhập xuất" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                        </ListViewItem>
 
-                <Grid Height="60" RenderTransformOrigin="0.5,0.5">
-                    <!-- Nút mở menu -->
-                    <Button x:Name="ButtonOpenMenu" 
-                       Height="60" Width="60" Margin="5" 
-                       HorizontalAlignment="Right" VerticalAlignment="Top" 
-                       Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                       Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" 
-                       Click="ButtonOpenMenu_Click">
-                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
-                    </Button>
-                    <!-- Nút thu Menu -->
-                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" 
-                       Height="60" Width="60" Margin="5" 
-                       HorizontalAlignment="Right" VerticalAlignment="Top" 
-                       Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
-                       Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"
-                       Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                </Grid>
+                        <ListViewItem x:Name="ItemBangKeNhapXuat" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="TableLarge" VerticalAlignment="Center"/>
+                                <TextBlock Text="Bảng kê nhập, xuất hàng" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                        </ListViewItem>
 
-                <ListView x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
-                       SelectionChanged="ListViewMenu_SelectionChanged" Visibility="Hidden">
-                    <ListViewItem x:Name="ItemHangHoa" Height="60">
-                        <TextBlock Text="Danh mục hàng hóa" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemKhachHang" Height="60">
-                        <TextBlock Text="Danh mục khách hàng" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemCuaHang" Height="60">
-                        <TextBlock Text="Danh mục cửa hàng" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemTonDauKy" Height="60">
-                        <TextBlock Text="Tồn đầu kỳ" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemNhapXuatHang" Height="60">
-                        <TextBlock Text="Phiếu nhập, xuất hàng" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemXuatKho" Height="60">
-                        <TextBlock Text="Phiếu xuất kho" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemTongNhapXuat" Height="60">
-                        <TextBlock Text="Tổng hợp nhập xuất" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemBangKeNhapXuat" Height="60">
-                        <TextBlock Text="Bảng kê nhập, xuất hàng" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemThongKe" Height="60">
-                        <TextBlock Text="Thống kê mặt hàng" VerticalAlignment="Center" Margin="20 5"/>
-                    </ListViewItem>
-                </ListView>
+                        <ListViewItem x:Name="ItemThongKe" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Creation" VerticalAlignment="Center"/>
+                                <TextBlock Text="Thống kê mặt hàng" VerticalAlignment="Center" Margin="20 5"/>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </Border>
             </StackPanel>
-        </Grid>
+
+            <StackPanel Width="1050">
+                <!-- Thanh tiêu đề -->
+                <Canvas Height="70" Background="#FF1735B9">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="950">
+                            <TextBlock x:Name="TieuDe" Padding="12" Foreground="White" TextAlignment="Center" FontSize="30" FontWeight="Bold">Danh mục hàng hóa</TextBlock>
+                        </Grid>
+
+                        <Grid>
+                            <materialDesign:PopupBox Foreground="White" HorizontalAlignment="Right" Margin="0,0,10,0"
+                                         PlacementMode="BottomAndAlignRightEdges">
+                                <StackPanel>
+                                    <Button>Đăng xuất</Button>
+                                    <Button>Thoát</Button>
+                                </StackPanel>
+                            </materialDesign:PopupBox>
+                        </Grid>
+
+
+
+
+                    </StackPanel>
+                </Canvas>
+
+                <!-- Màn hình hiển thị -->
+                <Grid Height="600" Background="White">
+                    <StackPanel>
+                        <!-- Tên tài khoản -->
+                        <Grid Height="60">
+                            <TextBlock x:Name="textNgay" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                   Margin="100,10,0,0" ></TextBlock>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right"
+                                   FontFamily="Arial" FontSize="20" Margin="0,0,50,0">Tài khoản</TextBlock>
+                        </Grid>
+                        <Grid x:Name="GridMain" Height="540">
+
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

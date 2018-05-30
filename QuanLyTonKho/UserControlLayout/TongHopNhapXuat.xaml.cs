@@ -25,17 +25,33 @@ namespace QuanLyTonKho.UserControlLayout
         public TongHopNhapXuat()
         {
             InitializeComponent();
-            
+            datePicker.Text = DateTime.Now.ToString().Substring(0, 10);
+            datePicker2.Text = DateTime.Now.ToString().Substring(0, 10); 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            List<HANGHOA> listHangDB = Database.QUERY.LayBangHangHoa();
+            List<TongNhapXuat> listTongNhapXuat = new List<TongNhapXuat>();
+            int len = listHangDB.Count;
+
+            for(int i = 0; i < len; ++i)
+            {
+                listTongNhapXuat.Add(new TongNhapXuat() {
+                    STT = i+ 1,
+                    MaHang = listHangDB[i].MAHANG,
+                    TonDau = Database.QUERY.LaySoLuongTonTheoNgay(datePicker.SelectedDate.Value, DateTime.Now, listHangDB[i].MAHANG),
+                    Nhap = Database.QUERY.LayLuongNhapTheoNgay(datePicker.SelectedDate.Value, datePicker2.SelectedDate.Value, listHangDB[i].MAHANG),
+                    Xuat = Database.QUERY.LayLuongXuatTheoNgay(datePicker.SelectedDate.Value, datePicker2.SelectedDate.Value, listHangDB[i].MAHANG),
+                    TonCuoi = Database.QUERY.LaySoLuongTonTheoNgay(datePicker2.SelectedDate.Value, DateTime.Now, listHangDB[i].MAHANG)
+                });
+            }
+            lvTongHopNhapXuat.ItemsSource = listTongNhapXuat;
         }
 
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
-            Button_Click(sender, e);
+            //Button_Click(sender, e);
         }
     }
 

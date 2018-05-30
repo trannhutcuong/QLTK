@@ -47,20 +47,11 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Height="60">
-                    <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Kho chứa:</TextBlock>
-                    <Border  VerticalAlignment="Center" Height="40" Width="200"
-                             BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
-                             Margin="10,0,0,0">
-                        <TextBox x:Name="tbKho" BorderThickness="0"  Margin="10,2,0,5"></TextBox>
-                    </Border>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Height="60">
                     <TextBlock Width="90" Margin="50,0,0,0" VerticalAlignment="Center">Ngày nhập:</TextBlock>
                     <Border  VerticalAlignment="Center" Height="40" Width="200"
                              BorderBrush="#FF24F19D" BorderThickness="1" CornerRadius="4"
                              Margin="10,0,0,0">
-                        <DatePicker x:Name="tbNgayNhap" IsEnabled= "False" BorderThickness="0"  Margin="10,2,0,5"></DatePicker>
+                        <DatePicker x:Name="datePicker" BorderThickness="0"  Margin="10,2,0,5"></DatePicker>
                     </Border>
                 </StackPanel>
 

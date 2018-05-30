@@ -40,6 +40,7 @@ namespace QuanLyTonKho.Layout
                     Database.INSERT.ThemKhachHang(khachHang);
 
                     MessageBox.Show("Thêm thành công", "Thông báo");
+                    this.Close();
                 }
                 else
                     MessageBox.Show("Đã tồn tại mã khách hàng này", "Thông báo");

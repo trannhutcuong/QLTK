@@ -74,6 +74,9 @@
     <Compile Include="Layout\SuaKho.xaml.cs">
       <DependentUpon>SuaKho.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout\SuaPhieuHang.xaml.cs">
+      <DependentUpon>SuaPhieuHang.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layout\SuaSanPham.xaml.cs">
       <DependentUpon>SuaSanPham.xaml</DependentUpon>
     </Compile>
@@ -83,13 +86,16 @@
     <Compile Include="Layout\ThemKho.xaml.cs">
       <DependentUpon>ThemKho.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout\ThemPhieuHang.xaml.cs">
+      <DependentUpon>ThemPhieuHang.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layout\ThemSanPham.xaml.cs">
       <DependentUpon>ThemSanPham.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyDB.designer.cs">
+    <Compile Include="MyDatabase.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyDB.dbml</DependentUpon>
+      <DependentUpon>MyDatabase.dbml</DependentUpon>
     </Compile>
     <Compile Include="UserControlLayout\BangKeNhapXuat.xaml.cs">
       <DependentUpon>BangKeNhapXuat.xaml</DependentUpon>
@@ -106,8 +112,14 @@
     <Compile Include="UserControlLayout\DanhMucKhachHang.xaml.cs">
       <DependentUpon>DanhMucKhachHang.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlLayout\PhieuNhapHang.xaml.cs">
+      <DependentUpon>PhieuNhapHang.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlLayout\PhieuNhapXuatHang.xaml.cs">
       <DependentUpon>PhieuNhapXuatHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlLayout\PhieuXuatHang.xaml.cs">
+      <DependentUpon>PhieuXuatHang.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlLayout\PhieuXuatKho.xaml.cs">
       <DependentUpon>PhieuXuatKho.xaml</DependentUpon>
@@ -140,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Layout\SuaPhieuHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Layout\SuaSanPham.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Layout\ThemKho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Layout\ThemPhieuHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,7 +211,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControlLayout\PhieuNhapHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlLayout\PhieuNhapXuatHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlLayout\PhieuXuatHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,13 +262,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="MyDB.dbml">
+    <None Include="MyDatabase.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>MyDB.designer.cs</LastGenOutput>
+      <LastGenOutput>MyDatabase.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MyDB.dbml.layout">
-      <DependentUpon>MyDB.dbml</DependentUpon>
+    <None Include="MyDatabase.dbml.layout">
+      <DependentUpon>MyDatabase.dbml</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -253,6 +281,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\store.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

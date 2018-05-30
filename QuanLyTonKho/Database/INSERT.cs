@@ -15,12 +15,10 @@ namespace QuanLyTonKho.Database
             HANGHOA hangHoaDB = new HANGHOA();
             hangHoaDB.MAHANG = hangHoa.MaHang;
             hangHoaDB.TENHANG = hangHoa.TenHang;
-            hangHoaDB.GIA = hangHoa.Gia;
-            hangHoaDB.MAKHO = hangHoa.KhoChua;
-            hangHoaDB.NGAYNHAP = hangHoa.NgayNhap;
+            hangHoaDB.GIA = hangHoa.Gia;            hangHoaDB.NGAYNHAP = hangHoa.NgayNhap;
             hangHoaDB.SOLUONG = hangHoa.SoLuong;
 
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 db.HANGHOAs.InsertOnSubmit(hangHoaDB);
                 db.SubmitChanges();
@@ -36,7 +34,7 @@ namespace QuanLyTonKho.Database
             khachHangDB.SODIENTHOAI = khachHang.SDT;
             khachHangDB.DIACHI = khachHang.DiaChi;
 
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 db.KHACHHANGs.InsertOnSubmit(khachHangDB);
                 db.SubmitChanges();
@@ -50,7 +48,7 @@ namespace QuanLyTonKho.Database
             KhoDB.MAKHO = kho.MaKho;
             KhoDB.TENKHO = kho.TenKho;
 
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 db.KHOs.InsertOnSubmit(KhoDB);
                 db.SubmitChanges();
@@ -60,7 +58,7 @@ namespace QuanLyTonKho.Database
         // Thêm phiếu hàng
         public static void ThemPhieuHang(PHIEUHANG phieu)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 db.PHIEUHANGs.InsertOnSubmit(phieu);
                 db.SubmitChanges();
@@ -70,7 +68,7 @@ namespace QuanLyTonKho.Database
         // Thêm phiếu xuất kho
         public static void ThemPhieuXuatKho(PHIEUXUATKHO phieu)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 db.PHIEUXUATKHOs.InsertOnSubmit(phieu);
                 db.SubmitChanges();

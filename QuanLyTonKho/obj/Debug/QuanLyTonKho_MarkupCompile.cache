@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\QuanLyTonKho\QuanLyTonKho\QuanLyTonKho\obj\Debug\
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\
 QuanLyTonKho
 none
 false
 DEBUG;TRACE
-D:\QuanLyTonKho\QuanLyTonKho\QuanLyTonKho\App.xaml
-202017119053
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\App.xaml
+24554658622
 
-291144371532
-16295535210
-Layout\DangNhap.xaml;Layout\ManHinhChinh.xaml;Layout\SuaKhachHang.xaml;Layout\SuaKho.xaml;Layout\SuaSanPham.xaml;Layout\ThemKhachHang.xaml;Layout\ThemKho.xaml;Layout\ThemSanPham.xaml;MainWindow.xaml;UserControlLayout\BangKeNhapXuat.xaml;UserControlLayout\ControlBarWindow.xaml;UserControlLayout\DanhMucCuaHang.xaml;UserControlLayout\DanhMucHangHoa.xaml;UserControlLayout\DanhMucKhachHang.xaml;UserControlLayout\PhieuNhapXuatHang.xaml;UserControlLayout\PhieuXuatKho.xaml;UserControlLayout\SearchItem.xaml;UserControlLayout\ThongKeMatHang.xaml;UserControlLayout\TonDauKy.xaml;UserControlLayout\TongHopNhapXuat.xaml;
+33-1840007090
+16-993154765
+Layout\DangNhap.xaml;Layout\ManHinhChinh.xaml;Layout\SuaKhachHang.xaml;Layout\SuaKho.xaml;Layout\SuaPhieuHang.xaml;Layout\SuaSanPham.xaml;Layout\ThemKhachHang.xaml;Layout\ThemKho.xaml;Layout\ThemPhieuHang.xaml;Layout\ThemSanPham.xaml;MainWindow.xaml;UserControlLayout\BangKeNhapXuat.xaml;UserControlLayout\ControlBarWindow.xaml;UserControlLayout\DanhMucCuaHang.xaml;UserControlLayout\DanhMucHangHoa.xaml;UserControlLayout\DanhMucKhachHang.xaml;UserControlLayout\PhieuNhapHang.xaml;UserControlLayout\PhieuNhapXuatHang.xaml;UserControlLayout\PhieuXuatHang.xaml;UserControlLayout\PhieuXuatKho.xaml;UserControlLayout\SearchItem.xaml;UserControlLayout\ThongKeMatHang.xaml;UserControlLayout\TonDauKy.xaml;UserControlLayout\TongHopNhapXuat.xaml;
 
 False
 

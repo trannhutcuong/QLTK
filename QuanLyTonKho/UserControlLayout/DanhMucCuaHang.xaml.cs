@@ -44,8 +44,7 @@ namespace QuanLyTonKho.UserControlLayout
                 {
                     STT = i + 1,
                     MaKho = listKhoDB[i].MAKHO,
-                    TenKho = listKhoDB[i].TENKHO,
-                    SoLuongSanPham = QUERY.LaySoLuongSanPhamKho(listKhoDB[i].MAKHO)
+                    TenKho = listKhoDB[i].TENKHO
                 });
             }
             lvDanhMucCuaHang.ItemsSource = listKho;
@@ -61,28 +60,7 @@ namespace QuanLyTonKho.UserControlLayout
         private void Button_Xoa_Click(object sender, RoutedEventArgs e)
         {
             // Xóa kho khỏi database
-            Kho kho = lvDanhMucCuaHang.SelectedItem as Kho;
-            if (kho != null)
-            {
-                if (QUERY.LaySoLuongSanPhamKho(kho.MaKho) == 0)
-                {
-                    if (MessageBox.Show("Xóa khách hàng có mã " + kho.MaKho, "Thông báo", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
-                    {
-
-                    }
-                    else
-                    {
-                        Database.DELETE.XoaKho(kho);
-                        MessageBox.Show("Đã xóa kho có mã " + kho.MaKho, "Thông báo");
-                    }
-                }
-                else
-                    MessageBox.Show("Không thể xóa kho có chứa sản phẩm", "Thông báo");
-
-                
-            }
-            else
-                MessageBox.Show("Hãy chọn kho cần xóa", "Thông báo");
+            
         }
 
         private void Button_Sua_Click(object sender, RoutedEventArgs e)
@@ -95,6 +73,29 @@ namespace QuanLyTonKho.UserControlLayout
             }
             else
                 MessageBox.Show("Hãy chọn kho cần cập nhật", "Thông báo");
+        }
+
+        private void Button_Tim_Click(object sender, RoutedEventArgs e)
+        {
+            string ThongTinTim = lbTimKiem.Text;
+            int dem = 0;
+            for (int i = 0; i < listKho.Count; ++i)
+            {
+                if (ThongTinTim.ToLower() == listKho[i].MaKho.ToLower())
+                {
+                    SuaKho thongTin = new SuaKho(listKho[i]);
+                    thongTin.Show();
+                }
+                else dem++;
+            }
+            if (dem == listKho.Count)
+                MessageBox.Show("Không tìm thấy kho", "Thông báo");
+        }
+
+        private void lbTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Button_Tim_Click(sender, e);
         }
     }
 

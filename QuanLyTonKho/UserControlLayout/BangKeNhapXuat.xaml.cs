@@ -20,97 +20,132 @@ namespace QuanLyTonKho.UserControlLayout
     /// </summary>
     public partial class BangKeNhapXuat : UserControl
     {
-        
-
         public BangKeNhapXuat()
         {
             InitializeComponent();
-
+            cbLoaiBangKe.SelectedIndex = 0;
+            datePicker.Text = DateTime.Now.ToString().Substring(0, 10);
+            datePicker2.Text = DateTime.Now.ToString().Substring(0, 10);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void UserControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            Button_Click(sender, e);
-        }
-
-        private void Button_Nhap_Click(object sender, RoutedEventArgs e)
-        {
-            List<PHIEUHANG> listPhieuHang = Database.QUERY.LayBangPhieuHang();
-
+        { 
             if (datePicker.Text != "" && datePicker2.Text != "")
             {
-                List<bangKeNhapXuat> listKeNhapXuat = new List<bangKeNhapXuat>();
-                DateTime NgayDau = datePicker.SelectedDate.Value;
-                DateTime NgayCuoi = datePicker2.SelectedDate.Value;
-                int len = listPhieuHang.Count;
-
-                for(int i = 0; i < len; ++i)
+                if(cbLoaiBangKe.Text == "Tất cả")
                 {
-                    if(listPhieuHang[i].LOAIPHIEU == 1)
-                    {
-                        if(listPhieuHang[i].NGAY >= NgayDau && listPhieuHang[i].NGAY < NgayCuoi)
-                        {
-                            listKeNhapXuat.Add(new bangKeNhapXuat() {
-                                SoChungTu = listPhieuHang[i].SOCHUNGTU,
-                                Ngay = (DateTime)listPhieuHang[i].NGAY,
-                                MaHang = listPhieuHang[i].MAHANG,
-                                MaKhachHang = listPhieuHang[i].MAKHACHHANG,
-                                SoLuong = (int)listPhieuHang[i].SOLUONG,
-                                Tien = Database.QUERY.LayGiaTuHang(listPhieuHang[i].MAHANG) * (int)listPhieuHang[i].SOLUONG,
-                                DienGiai = listPhieuHang[i].DIENGIAI
-                            });
-
-                        }
-                    }
+                    LayTatCaPhieuHang();
                 }
-                lvBangKeNhapXuat.ItemsSource = listKeNhapXuat;
+                else if(cbLoaiBangKe.Text == "Bảng kê nhập")
+                {
+                    LayPhieuNhap();
+                }
+                else
+                {
+                    LayPhieuXuat();
+                }
 
             }
             else
                 MessageBox.Show("Hãy nhập đủ thông tin ngày", "Thông báo");
-
         }
 
-        private void Button_Xuat_Click(object sender, RoutedEventArgs e)
+        private void LayTatCaPhieuHang()
         {
             List<PHIEUHANG> listPhieuHang = Database.QUERY.LayBangPhieuHang();
+            List<bangKeNhapXuat> listKeNhapXuat = new List<bangKeNhapXuat>();
+            DateTime NgayDau = datePicker.SelectedDate.Value;
+            DateTime NgayCuoi = datePicker2.SelectedDate.Value;
+            int len = listPhieuHang.Count;
 
-            if (datePicker.Text != "" && datePicker2.Text != "")
+            for (int i = 0; i < len; ++i)
             {
-                List<bangKeNhapXuat> listKeNhapXuat = new List<bangKeNhapXuat>();
-                DateTime NgayDau = datePicker.SelectedDate.Value;
-                DateTime NgayCuoi = datePicker2.SelectedDate.Value;
-                int len = listPhieuHang.Count;
-
-                for (int i = 0; i < len; ++i)
+                if (listPhieuHang[i].NGAY >= NgayDau && listPhieuHang[i].NGAY < NgayCuoi)
                 {
-                    if (listPhieuHang[i].LOAIPHIEU == 2)
+                    listKeNhapXuat.Add(new bangKeNhapXuat()
                     {
-                        if (listPhieuHang[i].NGAY >= NgayDau && listPhieuHang[i].NGAY < NgayCuoi)
-                        {
-                            listKeNhapXuat.Add(new bangKeNhapXuat()
-                            {
-                                SoChungTu = listPhieuHang[i].SOCHUNGTU,
-                                Ngay = (DateTime)listPhieuHang[i].NGAY,
-                                MaHang = listPhieuHang[i].MAHANG,
-                                MaKhachHang = listPhieuHang[i].MAKHACHHANG,
-                                SoLuong = -(int)listPhieuHang[i].SOLUONG,
-                                Tien = -Database.QUERY.LayGiaTuHang(listPhieuHang[i].MAHANG) * (int)listPhieuHang[i].SOLUONG,
-                                DienGiai = listPhieuHang[i].DIENGIAI
-                            });
-                        }
+                        SoChungTu = listPhieuHang[i].SOCHUNGTU,
+                        Ngay = (DateTime)listPhieuHang[i].NGAY,
+                        MaHang = listPhieuHang[i].MAHANG,
+                        MaKhachHang = listPhieuHang[i].MAKHACHHANG,
+                        SoLuong = Math.Abs((int)listPhieuHang[i].SOLUONG),
+                        Tien = Math.Abs(Database.QUERY.LayGiaTuHang(listPhieuHang[i].MAHANG) * (int)listPhieuHang[i].SOLUONG),
+                        DienGiai = listPhieuHang[i].DIENGIAI
+                    });
+
+                }
+            }
+            lvBangKeNhapXuat.ItemsSource = listKeNhapXuat;
+        }
+
+        private void LayPhieuNhap()
+        {
+            List<PHIEUHANG> listPhieuHang = Database.QUERY.LayBangPhieuHang();
+            List<bangKeNhapXuat> listKeNhapXuat = new List<bangKeNhapXuat>();
+            DateTime NgayDau = datePicker.SelectedDate.Value;
+            DateTime NgayCuoi = datePicker2.SelectedDate.Value;
+            int len = listPhieuHang.Count;
+
+            for (int i = 0; i < len; ++i)
+            {
+                if (listPhieuHang[i].LOAIPHIEU == 1)
+                {
+                    if (listPhieuHang[i].NGAY >= NgayDau && listPhieuHang[i].NGAY < NgayCuoi)
+                    {
+                        listKeNhapXuat.Add(new bangKeNhapXuat() {
+                            SoChungTu = listPhieuHang[i].SOCHUNGTU,
+                            Ngay = (DateTime)listPhieuHang[i].NGAY,
+                            MaHang = listPhieuHang[i].MAHANG,
+                            MaKhachHang = listPhieuHang[i].MAKHACHHANG,
+                            SoLuong = Math.Abs((int)listPhieuHang[i].SOLUONG),
+                            Tien = Math.Abs(Database.QUERY.LayGiaTuHang(listPhieuHang[i].MAHANG) * (int)listPhieuHang[i].SOLUONG),
+                            DienGiai = listPhieuHang[i].DIENGIAI
+                        });
                     }
                 }
-                lvBangKeNhapXuat.ItemsSource = listKeNhapXuat;
-
             }
-            else
-                MessageBox.Show("Hãy nhập đủ thông tin ngày", "Thông báo");
+            lvBangKeNhapXuat.ItemsSource = listKeNhapXuat;
+        }
+            
+        
+
+        private void LayPhieuXuat()
+        {
+            List<PHIEUHANG> listPhieuHang = Database.QUERY.LayBangPhieuHang();
+            List<bangKeNhapXuat> listKeNhapXuat = new List<bangKeNhapXuat>();
+            DateTime NgayDau = datePicker.SelectedDate.Value;
+            DateTime NgayCuoi = datePicker2.SelectedDate.Value;
+            int len = listPhieuHang.Count;
+
+            for (int i = 0; i < len; ++i)
+            {
+                if (listPhieuHang[i].LOAIPHIEU == 2)
+                {
+                    if (listPhieuHang[i].NGAY >= NgayDau && listPhieuHang[i].NGAY < NgayCuoi)
+                    {
+                        listKeNhapXuat.Add(new bangKeNhapXuat()
+                        {
+                            SoChungTu = listPhieuHang[i].SOCHUNGTU,
+                            Ngay = (DateTime)listPhieuHang[i].NGAY,
+                            MaHang = listPhieuHang[i].MAHANG,
+                            MaKhachHang = listPhieuHang[i].MAKHACHHANG,
+                            SoLuong = Math.Abs((int)listPhieuHang[i].SOLUONG),
+                            Tien = Math.Abs(Database.QUERY.LayGiaTuHang(listPhieuHang[i].MAHANG) * (int)listPhieuHang[i].SOLUONG),
+                            DienGiai = listPhieuHang[i].DIENGIAI
+                        });
+                    }
+                }
+            }
+            lvBangKeNhapXuat.ItemsSource = listKeNhapXuat;
+        }
+
+        private void cbLoaiBangKe_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Click(sender, e);
+            }
+                
         }
     }
 

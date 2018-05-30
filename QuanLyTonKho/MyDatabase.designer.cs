@@ -23,7 +23,7 @@ namespace QuanLyTonKho
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QUANLYTONKHO")]
-	public partial class MyDBDataContext : System.Data.Linq.DataContext
+	public partial class MyDatabaseDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -50,31 +50,31 @@ namespace QuanLyTonKho
     partial void DeletePHIEUXUATKHO(PHIEUXUATKHO instance);
     #endregion
 		
-		public MyDBDataContext() : 
+		public MyDatabaseDataContext() : 
 				base(global::QuanLyTonKho.Properties.Settings.Default.QUANLYTONKHOConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public MyDBDataContext(string connection) : 
+		public MyDatabaseDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public MyDBDataContext(System.Data.IDbConnection connection) : 
+		public MyDatabaseDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public MyDBDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public MyDatabaseDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public MyDBDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public MyDatabaseDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -251,8 +251,6 @@ namespace QuanLyTonKho
 		
 		private System.Nullable<int> _GIA;
 		
-		private string _MAKHO;
-		
 		private System.Nullable<System.DateTime> _NGAYNHAP;
 		
 		private System.Nullable<int> _SOLUONG;
@@ -260,8 +258,6 @@ namespace QuanLyTonKho
 		private EntitySet<PHIEUHANG> _PHIEUHANGs;
 		
 		private EntitySet<PHIEUXUATKHO> _PHIEUXUATKHOs;
-		
-		private EntityRef<KHO> _KHO;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -273,8 +269,6 @@ namespace QuanLyTonKho
     partial void OnTENHANGChanged();
     partial void OnGIAChanging(System.Nullable<int> value);
     partial void OnGIAChanged();
-    partial void OnMAKHOChanging(string value);
-    partial void OnMAKHOChanged();
     partial void OnNGAYNHAPChanging(System.Nullable<System.DateTime> value);
     partial void OnNGAYNHAPChanged();
     partial void OnSOLUONGChanging(System.Nullable<int> value);
@@ -285,7 +279,6 @@ namespace QuanLyTonKho
 		{
 			this._PHIEUHANGs = new EntitySet<PHIEUHANG>(new Action<PHIEUHANG>(this.attach_PHIEUHANGs), new Action<PHIEUHANG>(this.detach_PHIEUHANGs));
 			this._PHIEUXUATKHOs = new EntitySet<PHIEUXUATKHO>(new Action<PHIEUXUATKHO>(this.attach_PHIEUXUATKHOs), new Action<PHIEUXUATKHO>(this.detach_PHIEUXUATKHOs));
-			this._KHO = default(EntityRef<KHO>);
 			OnCreated();
 		}
 		
@@ -345,30 +338,6 @@ namespace QuanLyTonKho
 					this._GIA = value;
 					this.SendPropertyChanged("GIA");
 					this.OnGIAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKHO", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
-		public string MAKHO
-		{
-			get
-			{
-				return this._MAKHO;
-			}
-			set
-			{
-				if ((this._MAKHO != value))
-				{
-					if (this._KHO.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMAKHOChanging(value);
-					this.SendPropertyChanging();
-					this._MAKHO = value;
-					this.SendPropertyChanged("MAKHO");
-					this.OnMAKHOChanged();
 				}
 			}
 		}
@@ -436,40 +405,6 @@ namespace QuanLyTonKho
 			set
 			{
 				this._PHIEUXUATKHOs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHO_HANGHOA", Storage="_KHO", ThisKey="MAKHO", OtherKey="MAKHO", IsForeignKey=true)]
-		public KHO KHO
-		{
-			get
-			{
-				return this._KHO.Entity;
-			}
-			set
-			{
-				KHO previousValue = this._KHO.Entity;
-				if (((previousValue != value) 
-							|| (this._KHO.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._KHO.Entity = null;
-						previousValue.HANGHOAs.Remove(this);
-					}
-					this._KHO.Entity = value;
-					if ((value != null))
-					{
-						value.HANGHOAs.Add(this);
-						this._MAKHO = value.MAKHO;
-					}
-					else
-					{
-						this._MAKHO = default(string);
-					}
-					this.SendPropertyChanged("KHO");
-				}
 			}
 		}
 		
@@ -690,8 +625,6 @@ namespace QuanLyTonKho
 		
 		private string _TENKHO;
 		
-		private EntitySet<HANGHOA> _HANGHOAs;
-		
 		private EntitySet<PHIEUHANG> _PHIEUHANGs;
 		
 		private EntitySet<PHIEUXUATKHO> _PHIEUXUATKHOs;
@@ -710,7 +643,6 @@ namespace QuanLyTonKho
 		
 		public KHO()
 		{
-			this._HANGHOAs = new EntitySet<HANGHOA>(new Action<HANGHOA>(this.attach_HANGHOAs), new Action<HANGHOA>(this.detach_HANGHOAs));
 			this._PHIEUHANGs = new EntitySet<PHIEUHANG>(new Action<PHIEUHANG>(this.attach_PHIEUHANGs), new Action<PHIEUHANG>(this.detach_PHIEUHANGs));
 			this._PHIEUXUATKHOs = new EntitySet<PHIEUXUATKHO>(new Action<PHIEUXUATKHO>(this.attach_PHIEUXUATKHOs), new Action<PHIEUXUATKHO>(this.detach_PHIEUXUATKHOs));
 			this._PHIEUXUATKHOs1 = new EntitySet<PHIEUXUATKHO>(new Action<PHIEUXUATKHO>(this.attach_PHIEUXUATKHOs1), new Action<PHIEUXUATKHO>(this.detach_PHIEUXUATKHOs1));
@@ -754,19 +686,6 @@ namespace QuanLyTonKho
 					this.SendPropertyChanged("TENKHO");
 					this.OnTENKHOChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KHO_HANGHOA", Storage="_HANGHOAs", ThisKey="MAKHO", OtherKey="MAKHO")]
-		public EntitySet<HANGHOA> HANGHOAs
-		{
-			get
-			{
-				return this._HANGHOAs;
-			}
-			set
-			{
-				this._HANGHOAs.Assign(value);
 			}
 		}
 		
@@ -827,18 +746,6 @@ namespace QuanLyTonKho
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_HANGHOAs(HANGHOA entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHO = this;
-		}
-		
-		private void detach_HANGHOAs(HANGHOA entity)
-		{
-			this.SendPropertyChanging();
-			entity.KHO = null;
 		}
 		
 		private void attach_PHIEUHANGs(PHIEUHANG entity)

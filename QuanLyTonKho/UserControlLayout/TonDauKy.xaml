@@ -23,7 +23,8 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Width="70" VerticalAlignment="Center" Margin="100,0,0,0">Từ ngày:</TextBlock>
                         <Border BorderBrush="BlueViolet" Height="40" Width="220" CornerRadius="5" BorderThickness="1" Margin="10,0,0,0">
-                            <DatePicker x:Name="datePicker" Height="30" Width="180" Margin="10,2,0,5" FontFamily="Arial" FontSize="18" BorderThickness="0"></DatePicker>
+                            <DatePicker x:Name="datePicker" Height="30" Width="180" Margin="10,2,0,5" FontFamily="Arial"
+                                        KeyDown="datePicker_KeyDown" FontSize="18" BorderThickness="0"></DatePicker>
                         </Border>
                         <Button Style="{DynamicResource MaterialDesignToolForegroundButton}" 
                                 Margin="20,0,0,0" Click="Button_Click">
@@ -35,7 +36,7 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Height="450">
-            <Border BorderBrush="BlueViolet" Width="800"
+            <Border BorderBrush="BlueViolet" Width="880"
                 BorderThickness="1" Margin="80,10,10,10">
                 <ListView x:Name="lvDanhMucCuaHang">
                     <ListView.View>
@@ -49,10 +50,6 @@
                     </ListView.View>
                 </ListView>
             </Border>
-
-            <Grid Width="60">
-
-            </Grid>
         </StackPanel>
     </StackPanel>
 </UserControl>

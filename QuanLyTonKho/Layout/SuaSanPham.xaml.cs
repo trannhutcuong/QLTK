@@ -28,27 +28,26 @@ namespace QuanLyTonKho.Layout
             tbMa.Text = hangHoa.MaHang;
             tbTen.Text = hangHoa.TenHang;
             tbGia.Text = hangHoa.Gia.ToString();
-            tbKho.Text = hangHoa.KhoChua;
-            tbNgayNhap.Text = hangHoa.NgayNhap.ToString();
+            datePicker.Text = hangHoa.NgayNhap.ToString();
             tbSoLuong.Text = hangHoa.SoLuong.ToString();
         }
 
         private void Button_Sua_Click(object sender, RoutedEventArgs e)
         {
             // Cập nhật sảm phẩm xuống database
-            if(tbTen.Text != hangHoa.TenHang || tbGia.Text != hangHoa.Gia.ToString() || tbKho.Text != hangHoa.KhoChua ||
-                tbSoLuong.Text != hangHoa.SoLuong.ToString())
+            if(tbTen.Text != hangHoa.TenHang || tbGia.Text != hangHoa.Gia.ToString() ||
+               datePicker.ToString() != hangHoa.NgayNhap.ToString() || tbSoLuong.Text != hangHoa.SoLuong.ToString())
             {
                 HangHoa hangSua = new HangHoa();
                 hangSua.MaHang = hangHoa.MaHang;
                 hangSua.TenHang = tbTen.Text;
                 hangSua.Gia = Int32.Parse(tbGia.Text);
-                hangSua.KhoChua = tbKho.Text;
-                hangSua.NgayNhap = hangHoa.NgayNhap;
+                hangSua.NgayNhap = datePicker.SelectedDate.Value;
                 hangSua.SoLuong = Int32.Parse(tbSoLuong.Text);
 
                 Database.UPDATE.CapNhatHangHoa(hangSua);
                 MessageBox.Show("Cập nhật thành công", "Thông báo");
+                this.Close();
             }
       
         }
@@ -58,14 +57,6 @@ namespace QuanLyTonKho.Layout
             this.Close();
         }
 
-        //private void Window_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    // Sửa sảm phẩm xuống database
-        //    if (e.Key == Key.Enter)
-        //    {
-        //        Button_Sua_Click(sender, e);
-        //    }
-        //    this.Close();
-        //}
+        
     }
 }

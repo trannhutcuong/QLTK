@@ -52,7 +52,8 @@ namespace QuanLyTonKho.UserControlLayout
         private void Button_Them_Click(object sender, RoutedEventArgs e)
         {
             ThemKhachHang them = new ThemKhachHang();
-            them.Show();
+            them.ShowDialog();
+            NapDuLieuKhachHang();
         }
 
         private void Button_Xoa_Click(object sender, RoutedEventArgs e)
@@ -68,7 +69,7 @@ namespace QuanLyTonKho.UserControlLayout
                 else
                 {
                     Database.DELETE.XoaKhachHang(khachHang);
-                    MessageBox.Show("Đã xóa khách hàng có mã " + khachHang.MaKhachHang, "Thông báo");
+                    NapDuLieuKhachHang();
                 }
             }
             else
@@ -83,10 +84,34 @@ namespace QuanLyTonKho.UserControlLayout
             if(khachHang != null)
             {
                 SuaKhachHang suaKH = new SuaKhachHang(khachHang);
-                suaKH.Show();
+                suaKH.ShowDialog();
+                NapDuLieuKhachHang();
             }
             else
                 MessageBox.Show("Hãy chọn khách hàng cần cập nhật", "Thông báo");
+        }
+
+        private void lbTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Button_Tim_Click(sender, e);
+        }
+
+        private void Button_Tim_Click(object sender, RoutedEventArgs e)
+        {
+            string ThongTinTim = lbTimKiem.Text;
+            int dem = 0;
+            for (int i = 0; i < listKhachHang.Count; ++i)
+            {
+                if (ThongTinTim.ToLower() == listKhachHang[i].MaKhachHang.ToLower())
+                {
+                    SuaKhachHang thongTin = new SuaKhachHang(listKhachHang[i]);
+                    thongTin.Show();
+                }
+                else dem++;
+            }
+            if (dem == listKhachHang.Count)
+                MessageBox.Show("Không tìm thấy khách hàng", "Thông báo");
         }
     }
 

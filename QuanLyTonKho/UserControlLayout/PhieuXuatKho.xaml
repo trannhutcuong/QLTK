@@ -19,15 +19,18 @@
         <StackPanel Height="80">
             <Canvas Height="2" Background="#FF24F19D"></Canvas>
             <Grid Height="80">
-                
+                <Button Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                        ToolTip="Lưu" Margin="100,0,0,0" Click="Button_Click">
+                    <materialDesign:PackIcon Kind="ContentSaveSettings" />
+                </Button>
             </Grid>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Height="450">
-            <Border BorderBrush="BlueViolet" Width="800"
+            <Border BorderBrush="BlueViolet" Width="880"
                 BorderThickness="1" Margin="80,10,10,10">
                 <StackPanel>
-                    <Grid Height="100">
+                    <Grid Height="140">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -52,7 +55,7 @@
                         </Grid>
                     </Grid>
 
-                    <Grid Height="100">
+                    <Grid Height="140">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -77,7 +80,7 @@
                         </Grid>
                     </Grid>
 
-                    <Grid Height="100">
+                    <Grid Height="140">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -111,13 +114,9 @@
                     </Grid>
                 </StackPanel>
             </Border>
-
-            <Grid Width="60">
-                <Button Style="{StaticResource MaterialDesignFloatingActionLightButton}"
-                    ToolTip="In" FontSize="20" FontWeight="Bold"
-                    Margin="0 20" Click="Button_Click">OK
-                </Button>
-            </Grid>
         </StackPanel>
     </StackPanel>
 </UserControl>
+
+
+

@@ -24,6 +24,7 @@ namespace QuanLyTonKho.UserControlLayout
         public PhieuNhapXuatHang()
         {
             InitializeComponent();
+            datePicker.Text = DateTime.Now.ToString().Substring(0, 10);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,7 +39,6 @@ namespace QuanLyTonKho.UserControlLayout
                 phieuHang.MAKHACHHANG = tbMaKhach.Text;
                 phieuHang.DIENGIAI = tbDienGiai.Text;
                 phieuHang.MAHANG = tbMaHang.Text;
-                phieuHang.MAKHO = QUERY.LayMaKhoTuHang(tbMaHang.Text);
                 if (cbbTuyChon.Text != "")
                 {
                     if (cbbTuyChon.Text == "Phiếu nhập hàng")

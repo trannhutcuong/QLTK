@@ -23,31 +23,26 @@ namespace QuanLyTonKho.Layout
         public ThemSanPham()
         {
             InitializeComponent();
+            datePicker.Text = DateTime.Now.ToString().Substring(0, 10);
         }
 
         private void Button_Them_Click(object sender, RoutedEventArgs e)
         {
             // Thêm sảm phẩm xuống database
-            if (tbMa.Text != "" && tbTen.Text != "" && tbGia.Text != "" &&
-                tbKho.Text != "" && tbNgay.Text != "" && tbSoLuong.Text != "")
+            if (tbMa.Text != "" && tbTen.Text != "" && tbGia.Text != "" && tbSoLuong.Text != "")
             {
                 if (Database.QUERY.KiemTraMaHang(tbMa.Text) == false)
                 {
-                    if (Database.QUERY.KiemTraMaKho(tbKho.Text))
-                    {
-                        HangHoa hang = new HangHoa();
-                        hang.MaHang = tbMa.Text;
-                        hang.TenHang = tbTen.Text;
-                        hang.Gia = Int32.Parse(tbGia.Text);
-                        hang.KhoChua = tbKho.Text;
-                        hang.NgayNhap = tbNgay.SelectedDate.Value;
-                        hang.SoLuong = Int32.Parse(tbSoLuong.Text);
+                     HangHoa hang = new HangHoa();
+                     hang.MaHang = tbMa.Text;
+                     hang.TenHang = tbTen.Text;
+                     hang.Gia = Int32.Parse(tbGia.Text);
+                     hang.NgayNhap = datePicker.SelectedDate.Value;
+                     hang.SoLuong = Int32.Parse(tbSoLuong.Text);
 
-                        Database.INSERT.ThemHangHoa(hang);
-                        MessageBox.Show("Thêm thành công", "Thông báo");
-                    }
-                    else
-                        MessageBox.Show("Mã kho không tồn tại", "Thông báo");
+                     Database.INSERT.ThemHangHoa(hang);
+                     MessageBox.Show("Thêm thành công", "Thông báo");
+                    this.Close();
                 }
                 else MessageBox.Show("Đã tồn tại mã hàng này", "Thông báo");
             }

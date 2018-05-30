@@ -12,7 +12,7 @@ namespace QuanLyTonKho.Database
         // Xóa một hàng hóa khỏi database
         public static void XoaHangHoa(HangHoa hangHoa)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 HANGHOA hangHoaDB = (from n in db.HANGHOAs
                                      where n.MAHANG == hangHoa.MaHang
@@ -27,7 +27,7 @@ namespace QuanLyTonKho.Database
         // Xóa một khách hàng khỏi database
         public static void XoaKhachHang(KhachHang khachHang)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 KHACHHANG khachHangDB = (from n in db.KHACHHANGs
                                        where n.MAKHACHHANG == khachHang.MaKhachHang
@@ -42,7 +42,7 @@ namespace QuanLyTonKho.Database
         // Xóa một kho khỏi database
         public static void XoaKho(Kho kho)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 KHO khoDB = (from n in db.KHOs
                              where n.MAKHO == kho.MaKho
@@ -55,7 +55,7 @@ namespace QuanLyTonKho.Database
         // Xóa 1 Mã hàng khỏi danh sách PHIEUHANG
         public static void XoaMaHangKhoiPHIEUHANG(string MaHang)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 var PhieuHang = (from n in db.PHIEUHANGs
                                  where n.MAHANG == MaHang
@@ -71,7 +71,7 @@ namespace QuanLyTonKho.Database
         // Xóa 1 Mã hàng khỏi danh sách PHIEUXUATKHO
         public static void XoaMaHangKhoiPHIEUXUATKHO(string MaHang)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 var PhieuXuatKho = (from n in db.PHIEUXUATKHOs
                                     where n.MAHANG == MaHang
@@ -87,10 +87,26 @@ namespace QuanLyTonKho.Database
         // Xóa một mã khách hàng khỏi danh sách PHIEUHANG
         public static void XoaKhachHangKhoiPHIEUHANG(string MaKhachHang)
         {
-            using (MyDBDataContext db = new MyDBDataContext())
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
             {
                 var PhieuHang = (from n in db.PHIEUHANGs
                                  where n.MAKHACHHANG == MaKhachHang
+                                 select n);
+                foreach (var n in PhieuHang)
+                {
+                    db.PHIEUHANGs.DeleteOnSubmit(n);
+                    db.SubmitChanges();
+                }
+            }
+        }
+
+        // Xóa một phiếu nhập hoặc xuất hàng khỏi PHIEUHANG
+        public static void XoaPhieuHang(string SoCT)
+        {
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
+            {
+                var PhieuHang = (from n in db.PHIEUHANGs
+                                 where n.SOCHUNGTU == SoCT
                                  select n);
                 foreach (var n in PhieuHang)
                 {
