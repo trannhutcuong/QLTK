@@ -115,5 +115,18 @@ namespace QuanLyTonKho.Database
                 }
             }
         }
+
+        // Xóa một tồn kỳ khỏi database
+        public static void XoaKy(tonDauKy tonKy)
+        {
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
+            {
+                TONKY tonKyDB = (from n in db.TONKies
+                                     where n.MAKY == tonKy.MaKy
+                                     select n).FirstOrDefault();
+                db.TONKies.DeleteOnSubmit(tonKyDB);
+                db.SubmitChanges();
+            }
+        }
     }
 }

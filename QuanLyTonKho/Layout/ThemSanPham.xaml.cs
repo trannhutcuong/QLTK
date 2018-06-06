@@ -42,7 +42,7 @@ namespace QuanLyTonKho.Layout
 
                      Database.INSERT.ThemHangHoa(hang);
                      MessageBox.Show("Thêm thành công", "Thông báo");
-                    this.Close();
+                     this.Close();
                 }
                 else MessageBox.Show("Đã tồn tại mã hàng này", "Thông báo");
             }

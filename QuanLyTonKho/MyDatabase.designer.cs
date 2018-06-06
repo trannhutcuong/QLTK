@@ -30,6 +30,9 @@ namespace QuanLyTonKho
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertTONKY(TONKY instance);
+    partial void UpdateTONKY(TONKY instance);
+    partial void DeleteTONKY(TONKY instance);
     partial void InsertACCOUNT(ACCOUNT instance);
     partial void UpdateACCOUNT(ACCOUNT instance);
     partial void DeleteACCOUNT(ACCOUNT instance);
@@ -48,6 +51,9 @@ namespace QuanLyTonKho
     partial void InsertPHIEUXUATKHO(PHIEUXUATKHO instance);
     partial void UpdatePHIEUXUATKHO(PHIEUXUATKHO instance);
     partial void DeletePHIEUXUATKHO(PHIEUXUATKHO instance);
+    partial void InsertTONKY1(TONKY1 instance);
+    partial void UpdateTONKY1(TONKY1 instance);
+    partial void DeleteTONKY1(TONKY1 instance);
     #endregion
 		
 		public MyDatabaseDataContext() : 
@@ -78,6 +84,14 @@ namespace QuanLyTonKho
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<TONKY> TONKies
+		{
+			get
+			{
+				return this.GetTable<TONKY>();
+			}
 		}
 		
 		public System.Data.Linq.Table<ACCOUNT> ACCOUNTs
@@ -125,6 +139,148 @@ namespace QuanLyTonKho
 			get
 			{
 				return this.GetTable<PHIEUXUATKHO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TONKY1> TONKY1s
+		{
+			get
+			{
+				return this.GetTable<TONKY1>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TONKY")]
+	public partial class TONKY : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MAKY;
+		
+		private string _TENKY;
+		
+		private System.Nullable<System.DateTime> _NGAYBATDAU;
+		
+		private System.Nullable<System.DateTime> _NGAYKETTHUC;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMAKYChanging(string value);
+    partial void OnMAKYChanged();
+    partial void OnTENKYChanging(string value);
+    partial void OnTENKYChanged();
+    partial void OnNGAYBATDAUChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYBATDAUChanged();
+    partial void OnNGAYKETTHUCChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYKETTHUCChanged();
+    #endregion
+		
+		public TONKY()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKY", DbType="NVarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MAKY
+		{
+			get
+			{
+				return this._MAKY;
+			}
+			set
+			{
+				if ((this._MAKY != value))
+				{
+					this.OnMAKYChanging(value);
+					this.SendPropertyChanging();
+					this._MAKY = value;
+					this.SendPropertyChanged("MAKY");
+					this.OnMAKYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKY", DbType="NVarChar(20)")]
+		public string TENKY
+		{
+			get
+			{
+				return this._TENKY;
+			}
+			set
+			{
+				if ((this._TENKY != value))
+				{
+					this.OnTENKYChanging(value);
+					this.SendPropertyChanging();
+					this._TENKY = value;
+					this.SendPropertyChanged("TENKY");
+					this.OnTENKYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYBATDAU", DbType="Date")]
+		public System.Nullable<System.DateTime> NGAYBATDAU
+		{
+			get
+			{
+				return this._NGAYBATDAU;
+			}
+			set
+			{
+				if ((this._NGAYBATDAU != value))
+				{
+					this.OnNGAYBATDAUChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYBATDAU = value;
+					this.SendPropertyChanged("NGAYBATDAU");
+					this.OnNGAYBATDAUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYKETTHUC", DbType="Date")]
+		public System.Nullable<System.DateTime> NGAYKETTHUC
+		{
+			get
+			{
+				return this._NGAYKETTHUC;
+			}
+			set
+			{
+				if ((this._NGAYKETTHUC != value))
+				{
+					this.OnNGAYKETTHUCChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYKETTHUC = value;
+					this.SendPropertyChanged("NGAYKETTHUC");
+					this.OnNGAYKETTHUCChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1418,6 +1574,140 @@ namespace QuanLyTonKho
 						this._MAKHONHAP = default(string);
 					}
 					this.SendPropertyChanged("KHO1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TONKY")]
+	public partial class TONKY1 : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MAKY;
+		
+		private string _TENKY;
+		
+		private System.Nullable<System.DateTime> _NGAYBATDAU;
+		
+		private System.Nullable<System.DateTime> _NGAYKETTHUC;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMAKYChanging(string value);
+    partial void OnMAKYChanged();
+    partial void OnTENKYChanging(string value);
+    partial void OnTENKYChanged();
+    partial void OnNGAYBATDAUChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYBATDAUChanged();
+    partial void OnNGAYKETTHUCChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYKETTHUCChanged();
+    #endregion
+		
+		public TONKY1()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAKY", DbType="NVarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MAKY
+		{
+			get
+			{
+				return this._MAKY;
+			}
+			set
+			{
+				if ((this._MAKY != value))
+				{
+					this.OnMAKYChanging(value);
+					this.SendPropertyChanging();
+					this._MAKY = value;
+					this.SendPropertyChanged("MAKY");
+					this.OnMAKYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENKY", DbType="NVarChar(20)")]
+		public string TENKY
+		{
+			get
+			{
+				return this._TENKY;
+			}
+			set
+			{
+				if ((this._TENKY != value))
+				{
+					this.OnTENKYChanging(value);
+					this.SendPropertyChanging();
+					this._TENKY = value;
+					this.SendPropertyChanged("TENKY");
+					this.OnTENKYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYBATDAU", DbType="Date")]
+		public System.Nullable<System.DateTime> NGAYBATDAU
+		{
+			get
+			{
+				return this._NGAYBATDAU;
+			}
+			set
+			{
+				if ((this._NGAYBATDAU != value))
+				{
+					this.OnNGAYBATDAUChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYBATDAU = value;
+					this.SendPropertyChanged("NGAYBATDAU");
+					this.OnNGAYBATDAUChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYKETTHUC", DbType="Date")]
+		public System.Nullable<System.DateTime> NGAYKETTHUC
+		{
+			get
+			{
+				return this._NGAYKETTHUC;
+			}
+			set
+			{
+				if ((this._NGAYKETTHUC != value))
+				{
+					this.OnNGAYKETTHUCChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYKETTHUC = value;
+					this.SendPropertyChanged("NGAYKETTHUC");
+					this.OnNGAYKETTHUCChanged();
 				}
 			}
 		}

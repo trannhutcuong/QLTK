@@ -270,5 +270,35 @@ namespace QuanLyTonKho.Database
             return false;
         }
         #endregion
+
+        #region Các hàm tồn đầu kỳ
+        // Lấy danh sách tồn đầu kỳ
+        public static List<TONKY> LayTonDauKy()
+        {
+            List<TONKY> listTonKy = new List<TONKY>();
+            using (MyDatabaseDataContext db =new MyDatabaseDataContext())
+            {
+                var Query = (from n in db.TONKies
+                             select n);
+                foreach (var n in Query)
+                {
+                    listTonKy.Add(n);
+                }
+            }
+            return listTonKy;
+        }
+        // Kiểm tra mã tồn kỳ có tồn tại
+        public static bool KiemTraMaKy(string maKy)
+        {
+            List<TONKY> listHang = LayTonDauKy();
+            int len = listHang.Count;
+            for (int i = 0; i < len; ++i)
+            {
+                if (maKy.ToLower() == listHang[i].MAKY.ToLower())
+                    return true;
+            }
+            return false;
+        }
+        #endregion
     }
 }

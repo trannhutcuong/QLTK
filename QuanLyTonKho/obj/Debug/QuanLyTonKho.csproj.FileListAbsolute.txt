@@ -131,7 +131,6 @@ C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\C
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\DanhMucCuaHang.g.cs
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\DanhMucHangHoa.g.cs
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\DanhMucKhachHang.g.cs
-C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\PhieuNhapXuatHang.g.cs
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\PhieuXuatKho.g.cs
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\SearchItem.g.cs
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\ThongKeMatHang.g.cs
@@ -165,7 +164,6 @@ C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\C
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\DanhMucCuaHang.baml
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\DanhMucHangHoa.baml
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\DanhMucKhachHang.baml
-C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\PhieuNhapXuatHang.baml
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\PhieuXuatKho.baml
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\SearchItem.baml
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\UserControlLayout\ThongKeMatHang.baml
@@ -183,3 +181,9 @@ C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\ThemPhieuHan
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\ThemPhieuHang.baml
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\SuaPhieuHang.g.cs
 C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\SuaPhieuHang.baml
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\ThemKy.g.cs
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\ThemKy.baml
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\SuaKy.g.cs
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\SuaKy.baml
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\TonDauKySanPham.g.cs
+C:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\obj\Debug\Layout\TonDauKySanPham.baml

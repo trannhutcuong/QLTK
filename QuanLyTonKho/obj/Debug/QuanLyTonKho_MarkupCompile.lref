@@ -4,6 +4,7 @@ FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\DangNhap.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\ManHinhChinh.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\SuaKhachHang.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\SuaKho.xaml;;
+FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\SuaPhieuHang.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\SuaSanPham.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\ThemKhachHang.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\ThemKho.xaml;;
@@ -16,12 +17,13 @@ FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\DanhMucCua
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\DanhMucHangHoa.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\DanhMucKhachHang.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\PhieuNhapHang.xaml;;
-FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\PhieuNhapXuatHang.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\PhieuXuatHang.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\PhieuXuatKho.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\SearchItem.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\ThongKeMatHang.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\TonDauKy.xaml;;
 FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\UserControlLayout\TongHopNhapXuat.xaml;;
-FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\SuaPhieuHang.xaml;;
+FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\ThemKy.xaml;;
+FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\SuaKy.xaml;;
+FC:\Users\Tran Nhut Cuong\Desktop\QLTK\QuanLyTonKho\Layout\TonDauKySanPham.xaml;;
 

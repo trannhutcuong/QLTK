@@ -33,21 +33,21 @@
                         <ListViewItem x:Name="ItemHangHoa" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewList" VerticalAlignment="Center"/>
-                                <TextBlock Text="Danh mục hàng hóa" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Danh mục hàng hóa" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                         </ListViewItem>
 
                         <ListViewItem x:Name="ItemKhachHang" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="AccountCardDetails" VerticalAlignment="Center"/>
-                                <TextBlock Text="Danh mục khách hàng" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Danh mục khách hàng" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                         </ListViewItem>
 
                         <ListViewItem x:Name="ItemTonDauKy" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Restore" VerticalAlignment="Center"/>
-                                <TextBlock Text="Tồn đầu kỳ" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Tồn đầu kỳ" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                         </ListViewItem>
 
@@ -55,14 +55,14 @@
                         <ListViewItem x:Name="ItemNhapHang" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ArrowRightBoldBox" VerticalAlignment="Center"/>
-                                <TextBlock Text="Phiếu nhập hàng" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Phiếu nhập hàng" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                         </ListViewItem>
 
                         <ListViewItem x:Name="ItemXuatHang" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ArrowLeftBoldBox" VerticalAlignment="Center"/>
-                                <TextBlock Text="Phiếu xuất hàng" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Phiếu xuất hàng" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                             
                         </ListViewItem>
@@ -70,21 +70,21 @@
                         <ListViewItem x:Name="ItemTongNhapXuat" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Elevator" VerticalAlignment="Center"/>
-                                <TextBlock Text="Tổng hợp nhập xuất" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Tổng hợp nhập xuất" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                         </ListViewItem>
 
                         <ListViewItem x:Name="ItemBangKeNhapXuat" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="TableLarge" VerticalAlignment="Center"/>
-                                <TextBlock Text="Bảng kê nhập, xuất hàng" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Bảng kê nhập, xuất hàng" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                         </ListViewItem>
 
                         <ListViewItem x:Name="ItemThongKe" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Creation" VerticalAlignment="Center"/>
-                                <TextBlock Text="Thống kê mặt hàng" VerticalAlignment="Center" Margin="20 5"/>
+                                <TextBlock Text="Thống kê mặt hàng" FontWeight="Bold" VerticalAlignment="Center" Margin="20 5"/>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>

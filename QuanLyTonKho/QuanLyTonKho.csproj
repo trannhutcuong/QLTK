@@ -74,6 +74,9 @@
     <Compile Include="Layout\SuaKho.xaml.cs">
       <DependentUpon>SuaKho.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout\SuaKy.xaml.cs">
+      <DependentUpon>SuaKy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layout\SuaPhieuHang.xaml.cs">
       <DependentUpon>SuaPhieuHang.xaml</DependentUpon>
     </Compile>
@@ -86,11 +89,17 @@
     <Compile Include="Layout\ThemKho.xaml.cs">
       <DependentUpon>ThemKho.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout\ThemKy.xaml.cs">
+      <DependentUpon>ThemKy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layout\ThemPhieuHang.xaml.cs">
       <DependentUpon>ThemPhieuHang.xaml</DependentUpon>
     </Compile>
     <Compile Include="Layout\ThemSanPham.xaml.cs">
       <DependentUpon>ThemSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\TonDauKySanPham.xaml.cs">
+      <DependentUpon>TonDauKySanPham.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyDatabase.designer.cs">
       <AutoGen>True</AutoGen>
@@ -114,9 +123,6 @@
     </Compile>
     <Compile Include="UserControlLayout\PhieuNhapHang.xaml.cs">
       <DependentUpon>PhieuNhapHang.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlLayout\PhieuNhapXuatHang.xaml.cs">
-      <DependentUpon>PhieuNhapXuatHang.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlLayout\PhieuXuatHang.xaml.cs">
       <DependentUpon>PhieuXuatHang.xaml</DependentUpon>
@@ -152,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Layout\SuaKy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Layout\SuaPhieuHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,11 +178,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Layout\ThemKy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Layout\ThemPhieuHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Layout\ThemSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Layout\TonDauKySanPham.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -212,10 +230,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlLayout\PhieuNhapHang.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlLayout\PhieuNhapXuatHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

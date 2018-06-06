@@ -74,6 +74,14 @@ namespace QuanLyTonKho.Database
                 db.SubmitChanges();
             }
         }
-
+        // Thêm tồn đầu kỳ
+        public static void ThemTonDauKy(TONKY tonKy)
+        {
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
+            {
+                db.TONKies.InsertOnSubmit(tonKy);
+                db.SubmitChanges();
+            }
+        }
     }
 }

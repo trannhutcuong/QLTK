@@ -89,5 +89,19 @@ namespace QuanLyTonKho.Database
                 db.SubmitChanges();
             }
         }
+        // Sửa thông tin kỳ
+        public static void CapNhatKy(tonDauKy tonKy)
+        {
+            using (MyDatabaseDataContext db = new MyDatabaseDataContext())
+            {
+                TONKY tonKyDB = (from n in db.TONKies
+                                     where n.MAKY == tonKy.MaKy
+                                     select n).FirstOrDefault();
+                tonKyDB.TENKY = tonKy.TenKy;
+                tonKyDB.NGAYBATDAU = tonKy.NgayBatDau;
+                tonKyDB.NGAYKETTHUC = tonKy.NgayKetThuc;
+                db.SubmitChanges();
+            }
+        }
     }
 }
